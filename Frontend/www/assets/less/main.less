@@ -7,6 +7,7 @@
 @widthOfRightFixedDiv:300px;
 @minWidthOfTheLeftMainDiv:350px;
 @maxWidthOfTheInsidePartOfTheLeftMainDiv:1000px;
+@heightOfTheTopFixedDiv:150px;
 
 //borders
 @mainBorder: 4px dashed #407a15;
@@ -144,17 +145,22 @@
 .topFixedDiv
 {
   position: fixed;
-  left: 0;
+  right: @widthOfRightFixedDiv;
   top: 0;
+  left: 0;
 
   z-index: 4;
   display: flex;
   min-width: @minWidthOfTheLeftMainDiv;
-  max-width: 1000px;
-  height: 150px;
+  height: @heightOfTheTopFixedDiv;
   background: linear-gradient( rgba(16, 2, 13, 0.5), rgba(169,169,169, 0.8));
   border-radius: @generalRoundness;
   border:@mainBorder;
 
-  margin-right: @widthOfRightFixedDiv;
+
+}
+
+.navbar
+{
+  margin-top:@heightOfTheTopFixedDiv;
 }
