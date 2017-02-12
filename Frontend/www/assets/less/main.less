@@ -2,6 +2,7 @@
 @mainColorGradient: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
 @mainColorGradientAqua: linear-gradient( rgba(109, 108, 183, 0.8), rgba(96, 160, 191, 0.8));
 @mainColor: #9333bf;
+@stickerColorGradient: linear-gradient( rgb(197, 68, 255), rgb(147, 51, 191));
 
 //sizes
 @widthOfPizzaCard: 290px;
@@ -22,6 +23,15 @@
 
 
 @import "pizza/pizza-card";
+
+.stickerTextInwards()
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 .rightFixedDiv
 {
@@ -250,8 +260,13 @@
     left: 0;
     width: @widthOfSticker;
     height: @heightOfTheTopFixedDiv + 10px;
-    background-color: red;
+    background: @stickerColorGradient;
     float: left;
+
+    .standardFont
+    {
+      .stickerTextInwards();
+    }
 
     border: @mainBorder;
     border-radius: @generalRoundness;
@@ -292,4 +307,57 @@
   background-color: white;
   text-shadow: none;
   border: @mainBorder;
+}
+
+.mainBuyDiv
+{
+  height: 160px;
+  border: @mainBorder;
+  color: @mainColor;
+
+  .left
+  {
+    width: 50%;
+    float: left;
+  }
+
+  .right
+  {
+    width: 50%;
+    float: right;
+  }
+
+  .explanationSymbols
+  {
+    text-align: center;
+    padding: 10px;
+    font: @mainFont;
+    font-size: 20px;
+  }
+}
+
+.fixBottom::after
+{
+  visibility:	hidden;
+  display: block;
+  content: "";
+  height:	0;
+  clear:	both;
+}
+
+.stickerBottom
+{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: @widthOfSticker;
+  height: 200px;
+  border-radius: @generalRoundness;
+  border: @mainBorder;
+  background: @stickerColorGradient;
+
+  .standardFont
+  {
+    .stickerTextInwards();
+  }
 }
