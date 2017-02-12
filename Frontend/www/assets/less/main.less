@@ -1,3 +1,160 @@
-@mainColor: blue;
+//colors
+@mainColorGradient: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
+@mainColor: #9333bf;
+
+//sizes
+@widthOfPizzaCard: 290px;
+@widthOfRightFixedDiv:300px;
+@minWidthOfTheLeftMainDiv:350px;
+@maxWidthOfTheInsidePartOfTheLeftMainDiv:1000px;
+
+//borders
+@mainBorder: 4px dashed #407a15;
+@generalRoundness: 15px 0px 0px 15px;
+@borderColor: #407a15;
+
+//text
+@mainFont: bold 25px Tahoma;
+@shadowToGoOverText: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
 
 @import "pizza/pizza-card";
+
+.rightFixedDiv
+{
+  position: fixed;
+  right:0;
+  bottom: 0;
+  height: 100%;
+  width:@widthOfRightFixedDiv;
+  background: #8f55ff;
+  background: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
+  border-radius: @generalRoundness;
+  border: @mainBorder;
+}
+.leftMainDiv
+{
+  margin-right: @widthOfRightFixedDiv;
+  display: flex;
+  justify-content: center;
+  min-width: @minWidthOfTheLeftMainDiv;
+  .caption
+  {
+    padding: 0;
+  }
+
+  background: linear-gradient( rgba(109, 108, 183, 0.8), rgba(96, 160, 191, 0.8));
+  border-radius: @generalRoundness;
+  border:@mainBorder;
+}
+.backHouseForPizzaCards
+{
+  align-self: center;
+  .row
+  {
+    margin: 0 auto;
+    border: 2px solid yellow;
+    background-color: red;
+    width: 100%;
+    max-width: @maxWidthOfTheInsidePartOfTheLeftMainDiv;
+    padding: 0;
+  }
+}
+.pizzaInfo
+{
+  background: @mainColorGradient;
+  border-radius: @generalRoundness;
+  margin: 0;
+  margin-bottom: 5px;
+  border: @mainBorder;
+  color: white;
+}
+
+@media all and (max-width: 660px)
+{
+  .rightFixedDiv
+  {
+    position: absolute;
+    left: @minWidthOfTheLeftMainDiv;
+  }
+}
+
+.roundH3InCaption
+{
+  border-radius: @generalRoundness;
+  border: @mainBorder;
+  margin: 0;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.navbar-header
+{
+  float: left;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+
+  .navbar-brand
+  {
+    font:@mainFont;
+    font-size: 40px;
+    color: white;
+    text-shadow: @shadowToGoOverText;
+  }
+}
+.navbar-brand
+{
+  float:none;
+}
+.navbar-inner
+{
+  background:transparent;
+}
+.navbar-nav
+{
+  width: 100%;
+  text-align: center;
+
+  > li
+  {
+    float: none;
+    display: inline-block;
+  }
+
+  li
+  {
+    color: white;
+    font: @mainFont;
+    border: @mainBorder;
+    border-color: transparent;
+    text-shadow: @shadowToGoOverText;
+  }
+
+  li:hover
+  {
+    color: @mainColor;
+    border-color: @borderColor;
+    border-radius: @generalRoundness;
+    background-color: white;
+    text-shadow: none;
+  }
+}
+
+.topFixedDiv
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  z-index: 4;
+  display: flex;
+  min-width: @minWidthOfTheLeftMainDiv;
+  max-width: 1000px;
+  height: 150px;
+  background: linear-gradient( rgba(16, 2, 13, 0.5), rgba(169,169,169, 0.8));
+  border-radius: @generalRoundness;
+  border:@mainBorder;
+
+  margin-right: @widthOfRightFixedDiv;
+}
