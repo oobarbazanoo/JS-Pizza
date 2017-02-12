@@ -1,13 +1,15 @@
 //colors
 @mainColorGradient: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
+@mainColorGradientAqua: linear-gradient( rgba(109, 108, 183, 0.8), rgba(96, 160, 191, 0.8));
 @mainColor: #9333bf;
 
 //sizes
 @widthOfPizzaCard: 290px;
-@widthOfRightFixedDiv:300px;
+@widthOfRightFixedDiv:400px;
 @minWidthOfTheLeftMainDiv:350px;
 @maxWidthOfTheInsidePartOfTheLeftMainDiv:1000px;
 @heightOfTheTopFixedDiv:150px;
+@widthOfSticker: 140px;
 
 //borders
 @mainBorder: 4px dashed #407a15;
@@ -31,7 +33,72 @@
   background: #8f55ff;
   background: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
   border-radius: @generalRoundness;
-  border: @mainBorder;
+
+  .rightFixedDivTop
+  {
+    height: 70px;
+    background: @mainColorGradientAqua;
+    border: @mainBorder;
+    border-radius: @generalRoundness;
+
+    .standardFont
+    {
+      float: left;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    .numberOfOrdered
+    {
+      display: inline-block;
+      padding: 5px;
+      border: @mainBorder;
+      border-radius: @generalRoundness;
+      margin: 5px;
+      background: lighten(@mainColor, 35%);
+    }
+
+    .button
+    {
+      float: right;
+      margin: 5px;
+    }
+  }
+
+  .rightFixedDivBottom
+  {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 70px;
+    background: @mainColorGradientAqua;
+    border: @mainBorder;
+    border-radius: @generalRoundness;
+
+    .standardFont
+    {
+      float: left;
+      padding: 5px;
+      margin: 5px;
+    }
+
+    .priceToPayNumber
+    {
+      display: inline-block;
+      padding: 5px;
+      border: @mainBorder;
+      border-radius: @generalRoundness;
+      margin: 5px;
+      background: lighten(@mainColor, 35%);
+    }
+
+    .button
+    {
+      float: right;
+      margin: 5px;
+    }
+  }
+
 }
 .leftMainDiv
 {
@@ -44,7 +111,7 @@
     padding: 0;
   }
 
-  background: linear-gradient( rgba(109, 108, 183, 0.8), rgba(96, 160, 191, 0.8));
+  background: @mainColorGradientAqua;
   border-radius: @generalRoundness;
   border:@mainBorder;
 }
@@ -71,11 +138,10 @@
   color: white;
 }
 
-@media all and (max-width: 660px)
+@media all and (max-width: 750px)
 {
   .rightFixedDiv
   {
-    position: absolute;
     left: @minWidthOfTheLeftMainDiv;
   }
 }
@@ -150,17 +216,80 @@
   left: 0;
 
   z-index: 4;
-  display: flex;
   min-width: @minWidthOfTheLeftMainDiv;
   height: @heightOfTheTopFixedDiv;
   background: linear-gradient( rgba(16, 2, 13, 0.5), rgba(169,169,169, 0.8));
   border-radius: @generalRoundness;
-  border:@mainBorder;
 
+  .row
+  {
+    border: 3px dashed white;
+    margin: 20px;
+    padding: 10px;
+    padding-bottom: 0;
+    border-radius: @generalRoundness;
+  }
 
+  .leftPlaceForStickerOnLeft
+  {
+    margin-left: @widthOfSticker;
+  }
+
+  .standardFont
+  {
+    padding: 5px;
+    padding-left: 0;
+    vertical-align: center;
+  }
+
+  .stickerTop
+  {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: @widthOfSticker;
+    height: @heightOfTheTopFixedDiv + 10px;
+    background-color: red;
+    float: left;
+
+    border: @mainBorder;
+    border-radius: @generalRoundness;
+  }
 }
 
 .navbar
 {
   margin-top:@heightOfTheTopFixedDiv;
+}
+
+.standardFont
+{
+  font: @mainFont;
+  color: white;
+  text-shadow: @shadowToGoOverText;
+  display: inline-block;
+}
+
+.button
+{
+  display:inline-block;
+  padding: 5px;
+  color: white;
+  font: @mainFont;
+  border: @mainBorder;
+  border-color: transparent;
+  text-shadow: @shadowToGoOverText;
+  cursor: pointer;
+  text-align: center;
+}
+
+.button:hover
+{
+  color: @mainColor;
+  border-color: @borderColor;
+  border-radius: @generalRoundness;
+  background-color: white;
+  text-shadow: none;
+  border: @mainBorder;
 }
