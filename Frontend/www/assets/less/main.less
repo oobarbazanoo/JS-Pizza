@@ -94,6 +94,7 @@ body
   .goods
   {
     overflow-y: scroll;
+    overflow-x: visible;
     position: absolute;
     top: 70px;
     bottom: 70px;
@@ -286,6 +287,13 @@ body
   background: @mainColorGradientAqua;
   border-radius: @generalRoundness;
   border:@mainBorder;
+
+  .numberOfDifferentPizza
+  {
+    color: @mainColor;
+    margin-left: 10px;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  }
 }
 .backHouseForPizzaCards
 {
@@ -335,6 +343,11 @@ body
       font-size: 15px !important;
     }
 
+    .navbar
+    {
+      top: 55px;
+    }
+
     .myNavigation.navbar-nav
     {
       li
@@ -353,6 +366,7 @@ body
     {
       font-size: 10px;
     }
+    z-index: 2;
   }
 
   .stickerTop
@@ -363,6 +377,7 @@ body
     {
       font-size: 10px;
     }
+    z-index: 99;
   }
 
   .topFixedDiv
@@ -372,6 +387,9 @@ body
     {
       .button
       {
+        position: absolute;
+        top: -10px;
+        right: 80px;
         font-size: 15px;
         margin:0 !important;
         padding: 0 !important;
@@ -395,6 +413,17 @@ body
       {
         display: none;
       }
+    }
+  }
+}
+
+@media all and (max-width: 945px)
+{
+  .leftMainDiv
+  {
+    .navbar
+    {
+      margin-top:@heightOfTheTopFixedDiv - 5px;
     }
   }
 }
@@ -697,20 +726,18 @@ body
   white-space: nowrap;
   position: absolute;
   bottom: 0;
-
   left: 50%;
   transform: translateX(-50%);
   color:white;
   font-family: "Comic Sans MS";
   font-weight: bold;
   font-size: 5px;
-  border-radius: 45px;
+
   border: 1px dashed #000000;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   padding: 5px;
   padding-top: 0;
   padding-bottom: 0;
-
   background: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
   transition:all 1s linear;
 }
@@ -725,13 +752,32 @@ body
   font-family: "Comic Sans MS";
   font-weight: bold;
   font-size: 20px;
-  border-radius: 45px;
+  border-radius: @generalRoundness;
   border: 1px dashed #000000;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   padding: 5px;
   padding-top: 0;
   padding-bottom: 0;
 }
+
+.subtract.buttonOnRight.standardBtn[data-tooltip]:not([data-tooltip=""]):hover:before
+{
+  opacity: 1;
+  position: absolute;
+  bottom: 105%;
+  left: 170%;
+  transform: translateX(-50%);
+  font-family: "Comic Sans MS";
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: @generalRoundness;
+  border: 1px dashed #000000;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding: 5px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 
 .standardBtn
 {
