@@ -1,34 +1,41 @@
-//colors
-@mainColorGradient: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
-@mainColorGradientAqua: linear-gradient( rgba(109, 108, 183, 0.8), rgba(96, 160, 191, 0.8));
-@mainColor: #9333bf;
-@stickerColorGradient: linear-gradient( rgb(197, 68, 255), rgb(147, 51, 191));
-@green: #407a15;
+{ //colors
+  @mainColorGradient: linear-gradient(rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
+  @mainColorGradientAqua: linear-gradient(rgba(109, 108, 183, 0.8), rgba(96, 160, 191, 0.8));
+  @mainColor: #9333bf;
+  @stickerColorGradient: linear-gradient(rgb(197, 68, 255), rgb(147, 51, 191));
+  @green: #407a15;
 
 //sizes
-@widthOfPizzaCard: 290px;
-@widthOfRightFixedDiv:400px;
-@minWidthOfTheLeftMainDiv:350px;
-@maxWidthOfTheInsidePartOfTheLeftMainDiv:1000px;
-@heightOfTheTopFixedDiv:150px;
-@widthOfSticker: 140px;
+  @widthOfPizzaCard: 290px;
+  @widthOfRightFixedDiv: 400px;
+  @minWidthOfTheLeftMainDiv: 350px;
+  @maxWidthOfTheInsidePartOfTheLeftMainDiv: 1000px;
+  @heightOfTheTopFixedDiv: 100px;
+  @widthOfSticker: 120px;
+  @heightOfStickerBottom: 130px;
 
 //borders
-@mainBorder: 4px dashed #407a15;
-@generalRoundness: 15px 0px 0px 15px;
-@borderColor: #407a15;
+  @mainBorder: 4px dashed #407a15;
+  @generalRoundness: 15px 0px 0px 15px;
+  @borderColor: #407a15;
 
 //text
-@mainFont: bold 25px Tahoma;
-@shadowToGoOverText: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-@fontForButton: bold 30px Tahoma;
+  @mainFont: bold 25px Tahoma;
+  @shadowToGoOverText: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  @fontForButton: bold 30px Tahoma;
 
 //distances
-@distanceOfStickFromLeft: 20px;
-@distanceOfStickFromBottom: 5px;
-
+  @distanceOfStickFromLeft: 20px;
+  @distanceOfStickFromBottom: 5px;
+}
 
 @import "pizza/pizza-card";
+
+body
+{
+  background-color: @mainColor;
+  min-width: 430px;
+}
 
 .stickerTextInwards()
 {
@@ -42,8 +49,10 @@
 .rightFixedDiv
 {
   position: fixed;
+  display: -webkit-box;
   right:0;
   bottom: 0;
+  z-index: 3;
   height: 100%;
   width:@widthOfRightFixedDiv;
   background: #8f55ff;
@@ -52,6 +61,7 @@
 
   .rightFixedDivTop
   {
+    width: 100%;
     height: 70px;
     background: @mainColorGradientAqua;
     border: @mainBorder;
@@ -81,10 +91,157 @@
     }
   }
 
+  .goods
+  {
+    overflow-y: scroll;
+    position: absolute;
+    top: 70px;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+
+    .houseInfoAboutChosenPizza
+    {
+      width: @widthOfRightFixedDiv - 17px;
+      border: @mainBorder;
+      border-radius: @generalRoundness;
+      background-color: white;
+      margin-top: 5px;
+
+      .labelOnRight
+      {
+        margin: 10px;
+        margin-bottom: 0;
+        .standardFont
+        {
+          font-size: 18px;
+        }
+      }
+
+      .explanationSymbols
+      {
+        margin: 10px;
+        margin-bottom: 0;
+        font: @mainFont;
+        font-size: 20px;
+        color:@mainColor;
+
+        .secondExplanationSymbol
+        {
+          margin-left: 30px;
+        }
+      }
+
+      .barWithButtonsOnRight
+      {
+        margin: 10px;
+
+        .sumToPayForOne
+        {
+          vertical-align: middle;
+          display: inline-block;
+          font: @mainFont;
+          color: @mainColor;
+        }
+
+        .buttonsForAddSubtractCancelAmount
+        {
+          display: inline-block;
+          .subtract
+          {
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            border: 4px dashed #ffffff;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius:50%;
+            font-family: "Comic Sans MS";
+            font-weight: bold;
+            font-size: 30px;
+            background-color: #ff0000;
+            color: white;
+            margin-left: 10px;
+          }
+
+          .amount
+          {
+            display: inline-block;
+            text-align: center;
+            font: bold 20px Tahoma;
+            margin-left: 10px;
+            color: @mainColor;
+          }
+
+          .add
+          {
+            margin-left: 10px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            border: 4px dashed #ffffff;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius:50%;
+            font-family: "Comic Sans MS";
+            font-weight: bold;
+            font-size: 30px;
+            background-color: #407a15;
+            color: white;
+          }
+
+          .cancel
+          {
+            margin-left: 50px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            border: 4px dashed #ffffff;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius:50%;
+            font-family: "Comic Sans MS";
+            font-weight: bold;
+            font-size: 30px;
+            background-color: #ff8a24;
+            color: white;
+          }
+
+          .buttonOnRight
+          {
+            cursor: pointer;
+            text-shadow: @shadowToGoOverText;
+          }
+
+          .buttonOnRight:hover
+          {
+            background-color: white;
+            border: @mainBorder;
+            color: @mainColor;
+            text-shadow: none;
+          }
+        }
+
+      }
+
+      .housePicture
+      {
+        float: right;
+        display: inline-block;
+
+        .pizzaOnRight
+        {
+          width: 50px;
+        }
+      }
+    }
+  }
+
   .rightFixedDivBottom
   {
     position: absolute;
     bottom:0;
+    left: 0;
     width: 100%;
     height: 70px;
     background: @mainColorGradientAqua;
@@ -114,7 +271,6 @@
       margin: 5px;
     }
   }
-
 }
 .leftMainDiv
 {
@@ -154,20 +310,156 @@
   color: white;
 }
 
-@media all and (max-width: 750px)
+@media all and (max-width: 416px)
 {
   .rightFixedDiv
   {
-    left: @minWidthOfTheLeftMainDiv;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+}
+
+@media all and (max-width: 780px)
+{
+  .rightFixedDiv
+  {
+    right: 0;
+    width: @widthOfRightFixedDiv;
   }
 
   .leftMainDiv
   {
+    .navbar-brand
+    {
+      font-size: 15px !important;
+    }
 
+    .myNavigation.navbar-nav
+    {
+      li
+      {
+        font-size: 13px;
+        margin: 0;
+      }
+    }
+  }
 
+  .stickerBottom
+  {
+    width: @widthOfSticker - 20px !important;
+    height: @heightOfStickerBottom - 25px !important;
+    .standardFont
+    {
+      font-size: 10px;
+    }
+  }
+
+  .stickerTop
+  {
+    width: @widthOfSticker - 20px !important;
+    height: @heightOfStickerBottom - 25px !important;
+    .standardFont
+    {
+      font-size: 10px;
+    }
+  }
+
+  .topFixedDiv
+  {
+    height: @heightOfTheTopFixedDiv - 50px !important;
+    .topInfo
+    {
+      .button
+      {
+        font-size: 15px;
+        margin:0 !important;
+        padding: 0 !important;
+      }
+    }
+  }
+
+  .navbar
+  {
+    margin-top:@heightOfTheTopFixedDiv - 60px !important;
+  }
+}
+
+@media all and (max-width: 873px)
+{
+  .topFixedDiv
+  {
+    .topInfo
+    {
+      .number
+      {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1082px)
+{
+  .topFixedDiv
+  {
+    .topInfo
+    {
+      .time
+      {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1245px)
+{
+  .topFixedDiv
+  {
+    .topInfo
+    {
+      .freeDelivery
+      {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and(max-width: 1370px)
+{
+  .leftMainDiv
+  {
     .navbar-brand
     {
       font-size: 25px !important;
+    }
+
+    .myNavigation.navbar-nav
+    {
+      font-size: 10px !important;
+    }
+  }
+}
+
+@media all and(max-width: 1550px)
+{
+  .topFixedDiv
+  {
+    .standardFont
+    {
+      font-size: 15px;
+    }
+
+    .time, .freeDelivery
+    {
+      margin-left: 35px !important;
+    }
+
+    .button
+    {
+      font-size: 15px;
     }
   }
 }
@@ -219,6 +511,7 @@
   {
     color: white;
     font: @mainFont;
+    font-size: 20px;
     border: @mainBorder;
     border-color: transparent;
     text-shadow: @shadowToGoOverText;
@@ -240,58 +533,68 @@
   right: @widthOfRightFixedDiv;
   top: 0;
   left: 0;
-  z-index: 4;
+  z-index: 2;
   min-width: @minWidthOfTheLeftMainDiv;
   height: @heightOfTheTopFixedDiv;
   background: linear-gradient( rgba(16, 2, 13, 0.5), rgba(169,169,169, 0.8));
   border-radius: @generalRoundness;
 
-  .leftPlaceForStickerOnLeft
+  .topInfo
   {
     display: inline-block;
     margin-left: 50%;
+    margin-top: 20px;
+    width: 100%;
     transform: translate(-50%, -0%);
-    width: 1000px;
-    .row
+
+    .standardFont:nth-of-type(1)
     {
-      border: 3px dashed @green;
-      margin: 20px;
-      padding: 5px;
-      border-radius: @generalRoundness;
-      text-align: center;
+      margin-left: 180px;
     }
-  }
-
-  .standardFont
-  {
-    padding: 5px;
-    padding-left: 0;
-    vertical-align: center;
-  }
-
-  .stickerTop
-  {
-    display: inline-block;
-    position: relative;
-    top: 0;
-    left: @distanceOfStickFromLeft;
-    width: @widthOfSticker;
-    height: @heightOfTheTopFixedDiv + 10px;
-    background: @stickerColorGradient;
 
     .standardFont
     {
-      .stickerTextInwards();
+      border: 3px dashed white;
+      margin: 20px;
+      margin-left: 100px;
+      padding: 5px;
+      border-radius: @generalRoundness;
+      text-align: center;
+      float: left;
     }
-
-    border: @mainBorder;
-    border-radius: @generalRoundness;
+    .button
+    {
+      padding: 5px;
+      float: right;
+      margin: 20px;
+    }
+    vertical-align: middle;
   }
+}
+
+
+.stickerTop
+{
+  display: inline-block;
+  position: fixed;
+  top: @distanceOfStickFromBottom;
+  left: @distanceOfStickFromLeft;
+  width: @widthOfSticker;
+  height: @heightOfTheTopFixedDiv + 10px;
+  background: @stickerColorGradient;
+  z-index: 3;
+  .standardFont
+  {
+    .stickerTextInwards();
+    font-size: 20px;
+  }
+  border: @mainBorder;
+  border-radius: @generalRoundness;
 }
 
 .navbar
 {
-  margin-top:@heightOfTheTopFixedDiv;
+  margin-top:@heightOfTheTopFixedDiv - 20px;
 }
 
 .standardFont
@@ -368,7 +671,7 @@
   bottom: @distanceOfStickFromBottom;
   left: @distanceOfStickFromLeft;
   width: @widthOfSticker;
-  height: 200px;
+  height: @heightOfStickerBottom;
   border-radius: @generalRoundness;
   border: @mainBorder;
   border-width: 5px;
@@ -377,6 +680,7 @@
   .standardFont
   {
     .stickerTextInwards();
+    font-size: 20px;
   }
 }
 
@@ -384,142 +688,6 @@
 {
   background-color:#FF0000 !important;
   margin-left: 20px;
-}
-
-.houseInfoAboutChosenPizza
-{
-  width: @widthOfRightFixedDiv;
-  border: @mainBorder;
-  border-radius: @generalRoundness;
-  background-color: white;
-  margin-top: 5px;
-
-  .labelOnRight
-  {
-    margin: 10px;
-    margin-bottom: 0;
-    .standardFont
-    {
-      font-size: 18px;
-    }
-  }
-
-  .explanationSymbols
-  {
-    margin: 10px;
-    margin-bottom: 0;
-    font: @mainFont;
-    font-size: 20px;
-    color:@mainColor;
-
-    .secondExplanationSymbol
-    {
-      margin-left: 30px;
-    }
-  }
-
-  .barWithButtonsOnRight
-  {
-    margin: 10px;
-
-    .sumToPayForOne
-    {
-      vertical-align: middle;
-      display: inline-block;
-      font: @mainFont;
-      color: @mainColor;
-    }
-
-    .buttonsForAddSubtractCancelAmount
-    {
-      display: inline-block;
-      .subtract
-      {
-        display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-        border: 4px dashed #ffffff;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius:50%;
-        font-family: "Comic Sans MS";
-        font-weight: bold;
-        font-size: 30px;
-        background-color: #ff0000;
-        color: white;
-        margin-left: 10px;
-      }
-
-      .amount
-      {
-        display: inline-block;
-        text-align: center;
-        font: bold 20px Tahoma;
-        margin-left: 10px;
-        color: @mainColor;
-      }
-
-      .add
-      {
-        margin-left: 10px;
-        display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-        border: 4px dashed #ffffff;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius:50%;
-        font-family: "Comic Sans MS";
-        font-weight: bold;
-        font-size: 30px;
-        background-color: #407a15;
-        color: white;
-      }
-
-      .cancel
-      {
-        margin-left: 50px;
-        display: inline-block;
-        text-align: center;
-        vertical-align: middle;
-        border: 4px dashed #ffffff;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius:50%;
-        font-family: "Comic Sans MS";
-        font-weight: bold;
-        font-size: 30px;
-        background-color: #ff8a24;
-        color: white;
-      }
-
-      .buttonOnRight
-      {
-        cursor: pointer;
-        text-shadow: @shadowToGoOverText;
-      }
-
-      .buttonOnRight:hover
-      {
-        background-color: white;
-        border: @mainBorder;
-        color: @mainColor;
-        text-shadow: none;
-      }
-    }
-
-  }
-
-  .housePicture
-  {
-    float: right;
-    display: inline-block;
-
-    .pizzaOnRight
-    {
-        width: 50px;
-    }
-  }
 }
 
 .standardBtn:before
