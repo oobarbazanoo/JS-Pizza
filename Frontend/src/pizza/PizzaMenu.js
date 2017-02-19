@@ -8,14 +8,15 @@ var Pizza_List = require('../Pizza_List');
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
 
-function showPizzaList(list) {
+function showPizzaList(list)
+{
     //Очищаємо старі піци в кошику
     $pizza_list.html("");
 
     //Онволення однієї піци
-    function showOnePizza(pizza) {
+    function showOnePizza(pizza)
+    {
         var html_code = Templates.PizzaMenu_OneItem({pizza: pizza});
-
         var $node = $(html_code);
 
         $node.find(".buy-big").click(function(){
@@ -46,7 +47,8 @@ function filterPizza(filter) {
     showPizzaList(pizza_shown);
 }
 
-function initialiseMenu() {
+function initialiseMenu()
+{
     //Показуємо усі піци
     showPizzaList(Pizza_List)
 }

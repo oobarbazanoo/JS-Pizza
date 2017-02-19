@@ -4,7 +4,8 @@
 var Templates = require('../Templates');
 
 //Перелік розмірів піци
-var PizzaSize = {
+var PizzaSize =
+{
     Big: "big_size",
     Small: "small_size"
 };
@@ -15,7 +16,8 @@ var Cart = [];
 //HTML едемент куди будуть додаватися піци
 var $cart = $("#cart");
 
-function addToCart(pizza, size) {
+function addToCart(pizza, size)
+{
     //Додавання однієї піци в кошик покупок
 
     //Приклад реалізації, можна робити будь-яким іншим способом

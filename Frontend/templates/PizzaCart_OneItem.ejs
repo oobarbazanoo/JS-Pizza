@@ -1,9 +1,49 @@
-<div>
-    <%= pizza.title %> (<%= size %>)
-    <div>Ціна: <%= pizza[size].price %> грн.</div>
-    <div>
-        <button class="btn btn-danger minus">-</button>
-        <span class="label label-default"><%= quantity %></span>
-        <button class="btn btn-success plus">+</button>
-    </div>
+<!--<div>-->
+    <!--<%= pizza.title %> (<%= size %>)-->
+    <!--<div>Ціна: <%= pizza[size].price %> грн.</div>-->
+    <!--<div>-->
+        <!--<button class="btn btn-danger minus">-</button>-->
+        <!--<span class="label label-default"><%= quantity %></span>-->
+        <!--<button class="btn btn-success plus">+</button>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="houseInfoAboutChosenPizza">
+
+                <div class="housePicture">
+                    <img src="assets/images/pizzaOnRight.png" class="pizzaOnRight">
+                </div>
+
+                <div class="labelOnRight">
+                    <div class="standardFont"><%= pizza.title %> (<%= size %>)</div>
+                </div>
+
+                <div class="explanationSymbols">
+                    <img src="assets/images/size-icon.svg"> 34
+                    <img src="assets/images/weight.svg" class="secondExplanationSymbol"> 34</br>
+                </div>
+
+                <div class="barWithButtonsOnRight">
+                    <div class="sumToPayForOne">
+                        <%= pizza[size].price %>$
+                    </div>
+
+                    <div class="buttonsForAddSubtractCancelAmount">
+                        <div class="subtract buttonOnRight standardBtn" data-tooltip="Decrease amount">
+                            -
+                        </div>
+
+                        <div class="amount">
+                            <%= quantity %>
+                        </div>
+
+                        <div class="add buttonOnRight standardBtn" data-tooltip="Increase amount">
+                            +
+                        </div>
+
+                        <div class="cancel buttonOnRight standardBtn" data-tooltip="Cancel ordering">
+                            ×
+                        </div>
+                    </div>
+                </div>
 </div>
