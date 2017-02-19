@@ -2,7 +2,8 @@
  * Created by diana on 12.01.16.
  */
 
-var pizza_info = [
+var pizza_info =
+[
     {
         id:1,
         icon:'assets/images/pizza_7.jpg',
@@ -97,7 +98,7 @@ var pizza_info = [
         }
     },
     {
-        id:17,
+        id:5,
         icon:'assets/images/pizza_3.jpg',
         title: "Маргарита",
         type: 'Вега піца',
@@ -113,7 +114,7 @@ var pizza_info = [
         }
     },
     {
-        id:43,
+        id:6,
         icon:'assets/images/pizza_6.jpg',
         title: "Мікс смаків",
         type: 'М’ясна піца',
@@ -136,7 +137,7 @@ var pizza_info = [
         }
     },
     {
-        id:90,
+        id:7,
         icon:'assets/images/pizza_8.jpg',
         title: "Дольче Маре",
         type: 'Морська піца',
@@ -152,7 +153,7 @@ var pizza_info = [
         }
     },
     {
-        id:6,
+        id:8,
         icon:'assets/images/pizza_4.jpg',
         title: "Россо Густо",
         type: 'Морська піца',

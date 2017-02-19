@@ -15,26 +15,26 @@
 }%>
 
 <!--<div class="col-md-6 col-lg-4 pizza-card">-->
-    <!--<div class="thumbnail">-->
-        <!--<img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">-->
+<!--<div class="thumbnail">-->
+<!--<img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">-->
 
-        <!--<% if(pizza.is_new) { %>-->
-        <!--<span class="label label-danger">Нова</span>-->
-        <!--<% } else if(pizza.is_popular) {%>-->
-        <!--<span class="label label-success">Популярна</span>-->
-        <!--<% } %>-->
+<!--<% if(pizza.is_new) { %>-->
+<!--<span class="label label-danger">Нова</span>-->
+<!--<% } else if(pizza.is_popular) {%>-->
+<!--<span class="label label-success">Популярна</span>-->
+<!--<% } %>-->
 
-        <!--<div class="caption">-->
-            <!--<span class="title"><%= pizza.title %></span>-->
-            <!--<div class="type"><%= pizza.type %></div>-->
-            <!--<div class="description">-->
-                <!--<%= getIngredientsArray(pizza).join(", ") %>-->
-            <!--</div>-->
-        <!--</div>-->
+<!--<div class="caption">-->
+<!--<span class="title"><%= pizza.title %></span>-->
+<!--<div class="type"><%= pizza.type %></div>-->
+<!--<div class="description">-->
+<!--<%= getIngredientsArray(pizza).join(", ") %>-->
+<!--</div>-->
+<!--</div>-->
 
-        <!--&lt;!&ndash; Перед тим щоб показати кнопку необхідно переконатися, що піца має великий розмір &ndash;&gt;-->
-        <!--<button class="btn btn-primary buy-big">Купити велику</button>-->
-    <!--</div>-->
+<!--&lt;!&ndash; Перед тим щоб показати кнопку необхідно переконатися, що піца має великий розмір &ndash;&gt;-->
+<!--<button class="btn btn-primary buy-big">Купити велику</button>-->
+<!--</div>-->
 <!--</div>-->
 
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 center-text">
@@ -42,30 +42,30 @@
         <img src="<%= pizza.icon %>" class="mainImg">
 
         <div class="caption">
-            <h3 class="roundH3InCaption">Thumbnail label</h3>
+            <h3 class="roundH3InCaption"><%= pizza.title %></h3>
 
             <p class="pizzaInfo"><%= getIngredientsArray(pizza).join(", ") %></p>
 
             <div class="mainBuyDiv">
                 <div class="container-fluid left" >
                     <div class="explanationSymbols">
-                        <img src="assets/images/size-icon.svg"> 30</br>
-                        <img src="assets/images/weight.svg"> 134</br>
+                        <img src="assets/images/size-icon.svg"><span><%= pizza.small_size.size %></span></br>
+                        <img src="assets/images/weight.svg"><span><%= pizza.small_size.weight %></span></br>
                     </div>
 
-                    <div class="standardFont priceToPayForChoose">90$</div>
+                    <div class="standardFont priceToPayForChoose"><span><%= pizza.small_size.price %></span>$</div>
 
                     <div class="button standardBtn buy-small" data-tooltip="Buy small">Buy</div>
                 </div>
                 <div class="container-fluid right">
                     <div class="explanationSymbols">
-                        <img src="assets/images/size-icon.svg"> 40</br>
-                        <img src="assets/images/weight.svg"> 234</br>
+                        <img src="assets/images/size-icon.svg"><span><%= pizza.big_size.size %></span></br>
+                        <img src="assets/images/weight.svg"><span><%= pizza.big_size.weight %></span></br>
                     </div>
 
-                    <div class="standardFont priceToPayForChoose">150$</div>
+                    <div class="standardFont priceToPayForChoose"><span><%= pizza.big_size.price %></span>$</div>
 
-                    <div class="button  buy-big" data-tooltip="Buy big">Buy</div>
+                    <div class="button standardBtn  buy-big" data-tooltip="Buy big">Buy</div>
                 </div>
             </div>
         </div>
