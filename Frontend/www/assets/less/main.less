@@ -59,6 +59,19 @@ body
   background: linear-gradient( rgba(133, 9, 183, .8), rgba(147, 51, 191, .8));
   border-radius: @generalRoundness;
 
+  #emptyBox
+  {
+    padding: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    border-radius: @generalRoundness;
+    border: @mainBorder;
+    border-color: white;
+  }
+
   .rightFixedDivTop
   {
     width: 100%;
@@ -113,6 +126,8 @@ body
       {
         margin: 10px;
         margin-bottom: 0;
+        display: block;
+        text-align: center;
         .standardFont
         {
           font-size: 18px;
@@ -121,15 +136,16 @@ body
 
       .explanationSymbols
       {
-        margin: 10px;
-        margin-bottom: 0;
+        display: block;
+        text-align: center;
+        margin-left: 0;
         font: @mainFont;
         font-size: 20px;
         color:@mainColor;
 
         .secondExplanationSymbol
         {
-          margin-left: 30px;
+          margin-left: 20px;
         }
       }
 
@@ -139,8 +155,8 @@ body
 
         .sumToPayForOne
         {
-          vertical-align: middle;
-          display: inline-block;
+          text-align: center;
+          display: block;
           font: @mainFont;
           color: @mainColor;
         }
@@ -148,6 +164,7 @@ body
         .buttonsForAddSubtractCancelAmount
         {
           display: inline-block;
+          margin-top: 10px;
           .subtract
           {
             display: inline-block;
@@ -162,7 +179,7 @@ body
             font-size: 30px;
             background-color: #ff0000;
             color: white;
-            margin-left: 10px;
+            margin-left: 90px;
           }
 
           .amount
@@ -193,7 +210,7 @@ body
 
           .cancel
           {
-            margin-left: 50px;
+            margin-left: 40px;
             display: inline-block;
             text-align: center;
             vertical-align: middle;
@@ -279,14 +296,16 @@ body
   display: flex;
   justify-content: center;
   min-width: @minWidthOfTheLeftMainDiv;
+  background: @mainColorGradientAqua;
+  border-radius: @generalRoundness;
+  border:@mainBorder;
+
+
+
   .caption
   {
     padding: 0;
   }
-
-  background: @mainColorGradientAqua;
-  border-radius: @generalRoundness;
-  border:@mainBorder;
 
   .numberOfDifferentPizza
   {
@@ -294,7 +313,42 @@ body
     margin-left: 10px;
     text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
   }
+
+  .row
+  {
+    .caption
+    {
+      p.pizzaInfo
+      {
+        height: 65px;
+        text-align: center;
+      }
+    }
+  }
 }
+
+ .footer
+ {
+   margin-right: @widthOfRightFixedDiv;
+   min-width: @minWidthOfTheLeftMainDiv;
+   height: 100px;
+   background-color: @mainColorGradientAqua;
+
+   display: flex;
+   justify-content: center;
+   .standardFont
+   {
+     display: inline-block;
+     font-size: 15px;
+     align-self: center;
+     border: @mainBorder;
+     border-color: white;
+     border-radius: @generalRoundness;
+     padding: 5px;
+
+   }
+ }
+
 .backHouseForPizzaCards
 {
   align-self: center;
@@ -367,6 +421,7 @@ body
       font-size: 10px;
     }
     z-index: 2;
+    transition: all 5s;
   }
 
   .stickerTop
@@ -441,6 +496,30 @@ body
     }
   }
 }
+
+ @media all and (max-width: 1000px)
+ {
+   .footer
+   {
+     justify-content: flex-end;
+     .standardFont
+     {
+
+     }
+   }
+ }
+
+ @media all and (max-width: 1140px)
+ {
+   .footer
+   {
+
+     .standardFont
+     {
+       font-size: 10px;
+     }
+   }
+ }
 
 @media all and (max-width: 1245px)
 {
@@ -604,6 +683,7 @@ body
 
 .stickerTop
 {
+  transition: all 5s;
   display: inline-block;
   position: fixed;
   top: @distanceOfStickFromBottom;
@@ -632,6 +712,7 @@ body
   color: white;
   text-shadow: @shadowToGoOverText;
   display: inline-block;
+  transition: all 5s;
 }
 
 .button
@@ -705,7 +786,7 @@ body
   border: @mainBorder;
   border-width: 5px;
   background: @stickerColorGradient;
-
+  transition: all 5s;
   .standardFont
   {
     .stickerTextInwards();
@@ -760,26 +841,132 @@ body
   padding-bottom: 0;
 }
 
-.subtract.buttonOnRight.standardBtn[data-tooltip]:not([data-tooltip=""]):hover:before
-{
-  opacity: 1;
-  position: absolute;
-  bottom: 105%;
-  left: 170%;
-  transform: translateX(-50%);
-  font-family: "Comic Sans MS";
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: @generalRoundness;
-  border: 1px dashed #000000;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  padding: 5px;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-
 .standardBtn
 {
   position: relative;
 }
+
+#denyOrdered.standardBtn[data-tooltip]:not([data-tooltip=""]):hover:before
+{
+  bottom: 10%;
+  left: -40%;
+}
+
+.labelForSpecialCase
+{
+  padding: 5px;
+  display: inline-block;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  margin: 0 auto;
+  border: @mainBorder;
+  border-radius: @generalRoundness;
+  background: radial-gradient(rgba(45, 174, 238, 0.8) 20%, rgba(125, 174, 238, 0.5) 30%);
+  text-shadow: @shadowToGoOverText;
+  font: @mainFont;
+  color: @borderColor;
+  transition: all 5s;
+}
+
+.rotate
+{
+  transform: rotate(720deg);
+  border-color: yellow;
+  box-shadow: 0 0 3pt 2pt black;
+  color: yellow;
+}
+
+.thumbnail
+{
+  position: relative;
+}
+
+.scale
+{
+  transform: scale(1.5) translate(100px) rotate(360deg);
+  border-color: yellow;
+  box-shadow: 0 0 3pt 2pt black;
+  .standardFont
+  {
+    color: yellow;
+  }
+  background: radial-gradient(rgba(45, 174, 238, 0.8) 20%, rgba(125, 174, 238, 0.5) 30%);
+}
+
+.sortBtnClicked
+{
+  color: @mainColor;
+  border-color: @borderColor;
+  border-radius: @generalRoundness;
+  background-color: white;
+  text-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

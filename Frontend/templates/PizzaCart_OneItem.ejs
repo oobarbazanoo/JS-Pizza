@@ -1,13 +1,3 @@
-<!--<div>-->
-<!--<%= pizza.title %> (<%= size %>)-->
-<!--<div>Ціна: <%= pizza[size].price %> грн.</div>-->
-<!--<div>-->
-<!--<button class="btn btn-danger minus">-</button>-->
-<!--<span class="label label-default"><%= quantity %></span>-->
-<!--<button class="btn btn-success plus">+</button>-->
-<!--</div>-->
-<!--</div>-->
-
 <div class="houseInfoAboutChosenPizza">
 
     <div class="housePicture">
@@ -15,17 +5,17 @@
     </div>
 
     <div class="labelOnRight">
-        <div class="standardFont"><%= pizza.title %> (<%= size %>)</div>
+        <div class="standardFont"><%= pizza.title %> (<%= size == "small_size"?"Small":"Big" %>)</div>
     </div>
 
     <div class="explanationSymbols">
-        <img src="assets/images/size-icon.svg"> 34
-        <img src="assets/images/weight.svg" class="secondExplanationSymbol"> 34</br>
+        <img src="assets/images/size-icon.svg"> <%= pizza[size].size %>
+        <img src="assets/images/weight.svg" class="secondExplanationSymbol"> <span><%= pizza[size].weight %></span></br>
     </div>
 
     <div class="barWithButtonsOnRight">
         <div class="sumToPayForOne">
-            <%= pizza[size].price %>$
+            <%= price %>$
         </div>
 
         <div class="buttonsForAddSubtractCancelAmount">

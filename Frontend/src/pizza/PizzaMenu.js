@@ -14,6 +14,7 @@ function showPizzaList(list)
     $pizza_list.html("");
 
     //Онволення однієї піци
+    list.forEach(showOnePizza);
     function showOnePizza(pizza)
     {
         var html_code = Templates.PizzaMenu_OneItem({pizza: pizza});
@@ -28,19 +29,64 @@ function showPizzaList(list)
 
         $pizza_list.append($node);
     }
-
-    list.forEach(showOnePizza);
 }
 
-function filterPizza(filter) {
+$("#showAll").click(function()
+{
+    filterPizza("all");
+    $("nav .btn.standardBtn").removeClass("sortBtnClicked");
+    $(this).addClass("sortBtnClicked");
+});
+$("#showMeat").click(function()
+{
+    filterPizza("meat");
+    $("nav .btn.standardBtn").removeClass("sortBtnClicked");
+    $(this).addClass("sortBtnClicked");
+});
+$("#showPineapple").click(function()
+{
+    filterPizza("pineapple");
+    $("nav .btn.standardBtn").removeClass("sortBtnClicked");
+    $(this).addClass("sortBtnClicked");
+});
+$("#showMushroom").click(function()
+{
+    filterPizza("mushroom");
+    $("nav .btn.standardBtn").removeClass("sortBtnClicked");
+    $(this).addClass("sortBtnClicked");
+});
+$("#showSeafood").click(function()
+{
+    filterPizza("seafood");
+    $("nav .btn.standardBtn").removeClass("sortBtnClicked");
+    $(this).addClass("sortBtnClicked");
+});
+$("#showVegetarian").click(function()
+{
+    filterPizza("vegetarian");
+    $("nav .btn.standardBtn").removeClass("sortBtnClicked");
+    $(this).addClass("sortBtnClicked");
+});
+
+function filterPizza(filter)
+{
     //Масив куди потраплять піци які треба показати
     var pizza_shown = [];
 
-    Pizza_List.forEach(function(pizza){
-        //Якщо піка відповідає фільтру
-        //pizza_shown.push(pizza);
+    if(filter=="all")
+     {
+         showPizzaList(Pizza_List);
+         return;
+     }
 
-        //TODO: зробити фільтри
+    Pizza_List.forEach(function(pizza)
+    {
+        pizza.types.forEach(function(type)
+        {
+            if(type == filter)
+            {pizza_shown.push(pizza);}
+        });
+
     });
 
     //Показати відфільтровані піци
