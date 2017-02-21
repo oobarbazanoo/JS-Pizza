@@ -300,7 +300,7 @@ function addToCart(pizza, size)
 
 function pizzaAndSizeAreTheSame(cartItem, pizza, size)
 {
-    return (cartItem.pizza == pizza)&&(cartItem.size == size);
+    return (cartItem.pizza.id == pizza.id)&&(cartItem.size == size);
 }
 
 
