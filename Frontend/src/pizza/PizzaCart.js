@@ -1,13 +1,8 @@
 /**
  * Created by chaika on 02.02.16.
  */
-var Templates = require('../Templates');
-
-Storage.prototype.setObject = function(key, value)
-{this.setItem(key, JSON.stringify(value));}
-
-Storage.prototype.getObject = function(key)
-{return JSON.parse(this.getItem(key));}
+var Templates = require('../Templates'),
+    Storage	=	require('../Storage.js');
 
 //Перелік розмірів піци
 var PizzaSize =
@@ -17,7 +12,7 @@ var PizzaSize =
 };
 
 //Змінна в якій зберігаються перелік піц в кошику
-var Cart = localStorage.getObject("Cartt")
+var Cart =	Storage.get('cart');
 if(!Cart)
 {Cart = [];}
 
@@ -84,7 +79,8 @@ function getPizzaInCart() {
 
 function updateCart()
 {
-    localStorage.setObject("Cartt", Cart);
+    //
+    Storage.set("cart",	Cart);
 
     //Функція викликається при зміні вмісту кошика
     //Тут можна наприклад показати оновлений кошик на екрані та зберегти вміт кошика в Local Storage
