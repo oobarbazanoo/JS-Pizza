@@ -252,6 +252,7 @@ $(function()
         $(".stickerTop").toggleClass("scale");
         $(".stickerBottom").toggleClass("scale");
     }
+
 });
 },{"./Pizza_List":1,"./pizza/PizzaCart":5,"./pizza/PizzaMenu":6}],5:[function(require,module,exports){
 /**
@@ -259,12 +260,6 @@ $(function()
  */
 var Templates = require('../Templates'),
     Storage	=	require('../Storage.js');
-
-// Storage.prototype.setObject = function(key, value)
-// {this.setItem(key, JSON.stringify(value));}
-//
-// Storage.prototype.getObject = function(key)
-// {return JSON.parse(this.getItem(key));}
 
 //Перелік розмірів піци
 var PizzaSize =
@@ -432,6 +427,9 @@ exports.PizzaSize = PizzaSize;
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
 var Pizza_List = require('../Pizza_List');
+
+// var API = require('../API'),
+//     Pizza_List = API.getPizzaList(function(){});
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");

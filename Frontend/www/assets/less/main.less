@@ -233,9 +233,14 @@ body
 
           .buttonOnRight:hover
           {
-            background-color: white;
             border: @mainBorder;
+
+          }
+
+          .buttonOnRight:active
+          {
             color: @mainColor;
+            background-color: white;
             text-shadow: none;
           }
         }
@@ -299,8 +304,6 @@ body
   background: @mainColorGradientAqua;
   border-radius: @generalRoundness;
   border:@mainBorder;
-
-
 
   .caption
   {
@@ -627,9 +630,17 @@ body
 
   li:hover
   {
-    color: @mainColor;
+    color: white;
+    font: @mainFont;
+    font-size: 20px;
+    text-shadow: @shadowToGoOverText;
     border-color: @borderColor;
     border-radius: @generalRoundness;
+  }
+
+  li:active
+  {
+    color: @mainColor;
     background-color: white;
     text-shadow: none;
   }
@@ -730,12 +741,15 @@ body
 
 .button:hover
 {
-  color: @mainColor;
-  border-color: @borderColor;
   border-radius: @generalRoundness;
+  border: @mainBorder;
+}
+
+.button:active
+{
+  color: @mainColor;
   background-color: white;
   text-shadow: none;
-  border: @mainBorder;
 }
 
 .mainBuyDiv
@@ -904,6 +918,161 @@ body
 }
 
 
+ .leftMainDivForOrder
+{
+  margin-right: @widthOfRightFixedDiv;
+  display: flex;
+  min-width: @minWidthOfTheLeftMainDiv;
+  background: @mainColorGradientAqua;
+  border-radius: @generalRoundness;
+  border: @mainBorder;
+  color: white;
+  text-shadow: @shadowToGoOverText;
+  font-size: 20px;
+
+  .firstLabel
+  {
+    padding-left: 80px;
+  }
+
+  > .row
+  {
+    margin-top: @heightOfTheTopFixedDiv + 50px;
+  }
+
+  input[type="text"]
+  {
+    border: @mainBorder;
+    border-radius: @generalRoundness;
+    outline: none;
+    color: black;
+    text-align: left;
+  }
+
+  [class*="col-"]
+  {
+    margin-bottom: 15px;
+  }
+
+  .orderInfo
+  {
+    border:@mainBorder;
+    border-color: white;
+    padding: 10px;
+    border-radius: @generalRoundness;
+    background: @mainColor;
+    text-align: center;
+    .orderLabel
+    {
+      font-size: 25px;
+    }
+  }
+
+   .standardBtn
+   {
+     display: inline-block;
+     margin-top: 10px;
+     border: @mainBorder;
+     border-color: transparent;
+     padding: 5px;
+   }
+
+   .standardBtn:hover
+   {
+     border: @mainBorder;
+     border-radius: @generalRoundness;
+   }
+
+
+   .standardBtn:active
+   {
+     background-color: white;
+     border: @mainBorder;
+     border-radius: @generalRoundness;
+     color: @mainColor;
+     text-shadow: none;
+   }
+}
+
+
+@media all and(max-width: 992px)
+{
+  .leftMainDivForOrder
+  {
+    input[type="text"]
+    {
+      margin-left: 20px;
+    }
+
+    .validationBox
+    {
+      .text-sm-left
+      {
+        text-align: left;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+
+ .standardBtn:hover
+ {
+   cursor: pointer;
+ }
+
+.ordered
+{
+  .buttonOnRight
+  {
+    display: none !important;
+  }
+
+  .sumToPayForOne
+  {
+    display: inline-block !important;
+    margin-left: 90px;
+  }
+
+  .amount:before
+  {
+    content: '(';
+  }
+
+  .amount:after
+  {
+    content: ')';
+  }
+
+  #denyOrdered
+  {
+    display: none;
+  }
+
+  .rightFixedDivTop
+  {
+    > .standardFont
+    {
+      margin-left: 70px;
+    }
+  }
+
+  .rightFixedDivBottom
+  {
+    height: 120px;
+
+    .button
+    {
+      float: none;
+      padding: 5px;
+    }
+
+    > .standardFont
+    {
+      margin-left: 30px;
+    }
+  }
+}
 
 
 
@@ -938,17 +1107,10 @@ body
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+.centered
+{
+  text-align: center;
+}
 
 
 

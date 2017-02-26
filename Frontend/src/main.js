@@ -36,4 +36,5 @@ $(function()
         $(".stickerTop").toggleClass("scale");
         $(".stickerBottom").toggleClass("scale");
     }
+
 });

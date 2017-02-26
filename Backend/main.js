@@ -6,7 +6,8 @@ var path = require('path');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 
-function configureEndpoints(app) {
+function configureEndpoints(app)
+{
     var pages = require('./pages');
     var api = require('./api');
 
@@ -26,7 +27,8 @@ function configureEndpoints(app) {
     app.use(express.static(path.join(__dirname, '../Frontend/www')));
 }
 
-function startServer(port) {
+function startServer(port)
+{
     //Створюється застосунок
     var app = express();
 
@@ -45,7 +47,8 @@ function startServer(port) {
     configureEndpoints(app);
 
     //Запуск додатка за вказаним портом
-    app.listen(port, function () {
+    app.listen(port, function ()
+    {
         console.log('My Application Running on http://localhost:'+port+'/');
     });
 }
