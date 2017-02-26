@@ -37,4 +37,70 @@ $(function()
         $(".stickerBottom").toggleClass("scale");
     }
 
+    $("#nameInp").on("change keyup paste click", function()
+    {
+        var $inpField =  $(this);
+
+        if(!(/^[A-Z][a-z]*$/.test($inpField.val())) && !($inpField.val() == ""))
+            {
+                $inpField.addClass("wrongInpBorder");
+                $nameErrPrompt = $inpField.parent().find(".namePromptOnErrorInp");
+                $nameErrPrompt.removeClass("displayNone");
+                $nameErrPrompt.hide();
+                $nameErrPrompt.fadeIn(500);
+            }
+        else
+            {
+                $inpField.removeClass("wrongInpBorder");
+                $nameErrPrompt = $inpField.parent().find(".namePromptOnErrorInp");
+                $nameErrPrompt.fadeOut(500);
+                $nameErrPrompt.addClass("displayNone");
+            }
+
+    });
+
+    $("#phoneInp").on("change keyup paste click", function()
+    {
+        var $inpField =  $(this);
+
+        if(!(/^(\+380|0)[0-9]{9}$/.test($inpField.val())) && !($inpField.val() == ""))
+        {
+            $inpField.addClass("wrongInpBorder");
+            $nameErrPrompt = $inpField.parent().find(".phonePromptOnErrorInp");
+            $nameErrPrompt.removeClass("displayNone");
+            $nameErrPrompt.hide();
+            $nameErrPrompt.fadeIn(500);
+        }
+        else
+        {
+            $inpField.removeClass("wrongInpBorder");
+            $nameErrPrompt = $inpField.parent().find(".phonePromptOnErrorInp");
+            $nameErrPrompt.fadeOut(500);
+            $nameErrPrompt.addClass("displayNone");
+        }
+
+    });
+
+    $("#addressInp").on("change keyup paste click", function()
+    {
+        var $inpField =  $(this);
+
+        if(!(/([A-Z]{1}[a-z]*\,\s){2}[1-9][0-9]?[0-9]?$/.test($inpField.val())) && !($inpField.val() == ""))
+        {
+            $inpField.addClass("wrongInpBorder");
+            $nameErrPrompt = $inpField.parent().find(".addressPromptOnErrorInp");
+            $nameErrPrompt.removeClass("displayNone");
+            $nameErrPrompt.hide();
+            $nameErrPrompt.fadeIn(500);
+        }
+        else
+        {
+            $inpField.removeClass("wrongInpBorder");
+            $nameErrPrompt = $inpField.parent().find(".addressPromptOnErrorInp");
+            $nameErrPrompt.fadeOut(500);
+            $nameErrPrompt.addClass("displayNone");
+        }
+
+    });
+
 });
