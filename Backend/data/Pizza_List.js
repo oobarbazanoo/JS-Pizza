@@ -7,7 +7,7 @@ var pizza_info =
     {
         id:1,
         icon:'assets/images/pizza_7.jpg',
-        title: "Імпреза47",
+        title: "Імпреза",
         types: ['meat','pineapple'],
         content: {
             meat: ['балик', 'салямі'],

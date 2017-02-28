@@ -1,0 +1,30 @@
+<div class="leftMainDivForOrder">
+    <div class="row">
+        <div class="col-md-12 text-left firstLabel">1. Contact information</div>
+
+        <div class="col-md-8">
+            <div class="row validationBox">
+                <div class="col-md-4 text-right text-sm-left">Name</div>
+                <input type="text" class="col-md-8 text-md-center" placeholder="only name in English." id="nameInp">
+                <div class="col-md-12 righted displayNone namePromptOnErrorInp"><div class="invalidName">Only name in English. Name starts with big letter.</div></div>
+
+                <div class="col-md-4 text-right text-sm-left">Phone</div>
+                <input type="text" class="col-md-8 text-md-center" placeholder="+380*******." id="phoneInp">
+                <div class="col-md-12 righted displayNone phonePromptOnErrorInp"><div class="invalidName">Phone number starts with +38 or 0, ends with 7 digits</div></div>
+
+                <div class="col-md-4 text-right text-sm-left">Address</div>
+                <input type="text" class="col-md-8 text-md-center" placeholder="town, name, number of street." id="addressInp">
+                <div class="col-md-12 righted displayNone addressPromptOnErrorInp"><div class="invalidName">Example: "Town, Street, 110" . Number less than 4 digits.</div></div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="orderInfo">
+                <div class="orderLabel">Order info</div>
+                <div>Time of delivery: unknown</div>
+                <div>Address of delivery: unknown</div>
+            </div>
+            <div class="centered"><div class="standardBtn" data-tooltip="Next form to fill" id="ContinueButton">Continue</div></div>
+        </div>
+    </div>
+</div>

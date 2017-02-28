@@ -7,10 +7,15 @@ $(function()
     //This code will execute when the page is ready
     var PizzaMenu = require('./pizza/PizzaMenu');
     var PizzaCart = require('./pizza/PizzaCart');
-    var Pizza_List = require('./Pizza_List');
+    // var Pizza_List = require('./Pizza_List');
+    var API = require('./API');
+
+    API.getPizzaList(function(err, data)
+    {
+        PizzaMenu.initialiseMenu(data);
+    });
 
     PizzaCart.initialiseCart();
-    PizzaMenu.initialiseMenu();
 
     setInterval(updateTime, 1000);
     function updateTime()
@@ -47,13 +52,13 @@ $(function()
                 $nameErrPrompt = $inpField.parent().find(".namePromptOnErrorInp");
                 $nameErrPrompt.removeClass("displayNone");
                 $nameErrPrompt.hide();
-                $nameErrPrompt.fadeIn(500);
+                $nameErrPrompt.fadeIn(800);
             }
         else
             {
                 $inpField.removeClass("wrongInpBorder");
                 $nameErrPrompt = $inpField.parent().find(".namePromptOnErrorInp");
-                $nameErrPrompt.fadeOut(500);
+                $nameErrPrompt.fadeOut(800);
                 $nameErrPrompt.addClass("displayNone");
             }
 
@@ -69,13 +74,13 @@ $(function()
             $nameErrPrompt = $inpField.parent().find(".phonePromptOnErrorInp");
             $nameErrPrompt.removeClass("displayNone");
             $nameErrPrompt.hide();
-            $nameErrPrompt.fadeIn(500);
+            $nameErrPrompt.fadeIn(800);
         }
         else
         {
             $inpField.removeClass("wrongInpBorder");
             $nameErrPrompt = $inpField.parent().find(".phonePromptOnErrorInp");
-            $nameErrPrompt.fadeOut(500);
+            $nameErrPrompt.fadeOut(800);
             $nameErrPrompt.addClass("displayNone");
         }
 
@@ -91,16 +96,62 @@ $(function()
             $nameErrPrompt = $inpField.parent().find(".addressPromptOnErrorInp");
             $nameErrPrompt.removeClass("displayNone");
             $nameErrPrompt.hide();
-            $nameErrPrompt.fadeIn(500);
+            $nameErrPrompt.fadeIn(800);
         }
         else
         {
             $inpField.removeClass("wrongInpBorder");
             $nameErrPrompt = $inpField.parent().find(".addressPromptOnErrorInp");
-            $nameErrPrompt.fadeOut(500);
+            $nameErrPrompt.fadeOut(800);
             $nameErrPrompt.addClass("displayNone");
         }
 
     });
+
+
+    $("#ContinueButton").click(function()
+    {
+        if(allFieldsOk())
+        {sendInfoToServer();}
+    });
+    function allFieldsOk()
+    {
+        if($("#nameInp").hasClass("wrongInpBorder"))
+            {return false;}
+
+        if($("#phoneInp").hasClass("wrongInpBorder"))
+            {return false;}
+
+        if($("#addressInp").hasClass("wrongInpBorder"))
+            {return false;}
+
+        if($("#nameInp").val().length == 0)
+            {return false;}
+
+        if($("#phoneInp").val().length == 0)
+            {return false;}
+
+        if($("#addressInp").val().length == 0)
+            {return false;}
+
+        return true;
+    }
+    function sendInfoToServer()
+    {
+        API.createOrder(orderInfo(), showThatInfoWasSent);
+    }
+    function orderInfo()
+    {
+        return
+        {
+            name: $("#nameInp").val();
+            phone: $("#phoneInp").val();
+            address: $("#addressInp").val();
+        }
+    }
+    function showThatInfoWasSent()
+    {
+        console.log("Order is sent!");
+    }
 
 });
