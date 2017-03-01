@@ -78,6 +78,7 @@ function filterPizza(filter)
     if(filter=="all")
      {
          showPizzaList(Pizza_List);
+         $(".numberOfDifferentPizza").text(Pizza_List.length);
          return;
      }
 
@@ -90,6 +91,8 @@ function filterPizza(filter)
         });
 
     });
+
+    $(".numberOfDifferentPizza").text(pizza_shown.length);
 
     //Показати відфільтровані піци
     showPizzaList(pizza_shown);

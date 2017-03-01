@@ -206,16 +206,20 @@ $(function()
     }
     function sendInfoToServer()
     {
+        console.log(PizzaCart.getPizzaInCart());
         API.createOrder(orderInfo(), showThatInfoWasSent);
     }
     function orderInfo()
     {
-        return
-        {
-            name: $("#nameInp").val();
-            phone: $("#phoneInp").val();
-            address: $("#addressInp").val();
-        }
+        var infoForServer =
+            {
+                name: $("#nameInp").val(),
+                phone: $("#phoneInp").val(),
+                address: $("#addressInp").val(),
+                ordered: PizzaCart.getPizzaInCart()
+            };
+
+        return infoForServer;
     }
     function showThatInfoWasSent()
     {
@@ -470,6 +474,7 @@ function filterPizza(filter)
     if(filter=="all")
      {
          showPizzaList(Pizza_List);
+         $(".numberOfDifferentPizza").text(Pizza_List.length);
          return;
      }
 
@@ -482,6 +487,8 @@ function filterPizza(filter)
         });
 
     });
+
+    $(".numberOfDifferentPizza").text(pizza_shown.length);
 
     //Показати відфільтровані піци
     showPizzaList(pizza_shown);
