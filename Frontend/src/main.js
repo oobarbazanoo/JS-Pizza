@@ -191,9 +191,33 @@ $(function()
 
         return infoForServer;
     }
-    function showThatInfoWasSent()
+    function showThatInfoWasSent(err, data)
     {
-        console.log("Order is sent!");
+        if(err)
+        {
+            console.log(err);
+            return;
+        }
+
+        LiqPayCheckout.init
+        ({
+            data:	data.data,
+            signature:	data.signature,
+            embedTo:	"#liqpay",
+            mode:	"popup"
+        }).on("liqpay.callback", function(data)
+        {
+            console.log(data.status);
+            console.log(data);
+        }).on("liqpay.ready",	function(data)
+        {
+            //	ready
+        }).on("liqpay.close",	function(data)
+        {
+            //	close
+        });
+
+        console.log("Order is sent! data: ", data);
     }
 
 
