@@ -118,6 +118,18 @@ $(function()
                 if(err)
                 {
                     setTimeAndAddressToUnknown();
+                    endMarker.setMap(null);
+
+                    directionsDisplay.setMap(null);
+                    directionsDisplay = new google.maps.DirectionsRenderer
+                    ({
+                        polylineOptions:
+                            {
+                                strokeColor: "#9333bf"
+                            },
+                        suppressMarkers : true
+                    });
+                    directionsDisplay.setMap(map);
                     return;
                 }
                 calculateRoute(latLangOfTheShop, latLangOfTheDestination(coordinates), function(errInner, obj)
@@ -214,12 +226,44 @@ $(function()
             //	ready
         }).on("liqpay.close",	function(data)
         {
+
             //	close
+            console.log(data);
+
+            clearFields();
+            showDivThatDone();
         });
 
         console.log("Order is sent! data: ", data);
     }
 
+    function showDivThatDone()
+    {
+       $paymentDoneDiv = $("#fixedMiddleDonePayment");
+       $paymentDoneDiv.removeClass("displayNone");
+       setTimeout(function(){$paymentDoneDiv.addClass("displayNone");},7000)
+    }
+
+    function clearFields()
+    {
+        $("#nameInp").val("");
+        $("#phoneInp").val("");
+        $("#addressInp").val("");
+
+        setTimeAndAddressToUnknown();
+        endMarker.setMap(null);
+
+        directionsDisplay.setMap(null);
+        directionsDisplay = new google.maps.DirectionsRenderer
+        ({
+            polylineOptions:
+                {
+                    strokeColor: "#9333bf"
+                },
+            suppressMarkers : true
+        });
+        directionsDisplay.setMap(map);
+    }
 
     var latLangOfTheShop = new	google.maps.LatLng(50.464379,30.519131), directionsDisplay, map;
     google.maps.event.addDomListener(window, 'load', initialize);
